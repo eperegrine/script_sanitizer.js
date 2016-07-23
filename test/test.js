@@ -1,5 +1,17 @@
 var assert = require('chai').assert;
-var script_sanitize = require('../script_sanitize').sanitize;
+var ss = require('../script_sanitize');
+var script_sanitize = ss.sanitize;
+var utils = ss.utils;
+
+Array.prototype.contains = function(obj) {
+    var i = this.length;
+    while (i--) {
+        if (this[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
 
 describe('script_sanitize', function () {
   it('should remove empty script tags', function() {
@@ -105,6 +117,39 @@ describe('script_sanitize', function () {
         });
         assert.equal(a, "</script>");
       });
+    });
+  });
+});
+
+describe('utils', function () {
+  describe("generateRegexForTag", function() {
+    it("should generate regex to select a tag and it's content without whitespace", function () {
+      var scriptRe = utils.generateRegexForTag("script");
+
+      var res = scriptRe.exec('<script>alert(\'hi\');</script>');
+      assert.isOk(res.contains('<script>alert(\'hi\');</script>'));
+    });
+    it("should generate regex to select a tag and it's content with whitespace", function () {
+      var scriptRe = utils.generateRegexForTag("script");
+
+      var res = scriptRe.exec('<script href=\'\'  >alert(\'hi\');</script   >');
+      assert.isOk(res.contains('<script href=\'\'  >alert(\'hi\');</script   >'));
+    });
+  });
+
+  describe("generateRegexForEndTag", function() {
+    it("should generate regex to select an end tag with whitespace", function () {
+      var scriptRe = utils.generateRegexForEndTag("script");
+
+      var res = scriptRe.exec('</script >');
+      assert.isOk(res.contains('</script >'));
+    });
+
+    it("should generate regex to select an end tag without whitespace", function () {
+      var scriptRe = utils.generateRegexForEndTag("script");
+
+      var res = scriptRe.exec('</script>');
+      assert.isOk(res.contains('</script>'));
     });
   });
 });
