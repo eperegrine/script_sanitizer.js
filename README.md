@@ -28,6 +28,9 @@ and can be used like so
 ```js
 var sanitized = script_sanitize("<h1>Hello</h1><script>alert('hi')</script>");
 //=> <h1>Hello</h1>
+```
+
+```js
 var sanitizedWithReplacment = script_sanitize("<h1>Hello</h1><script>alert('hi')</script>", { replacementText: "no" })
 //=> <h1>Hello</h1>no
 ```

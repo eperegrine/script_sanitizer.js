@@ -32,7 +32,6 @@ function script_sanitize(html, options) {
     html = html.replace(strip_regex, replacementText);
   }
 
-
   if (removeEndTagsAfter) {
     while (scriptEndTagRegex.test(html)) {
       html = html.replace(scriptEndTagRegex, replacementText);
