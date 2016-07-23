@@ -17,7 +17,7 @@ function script_sanitize(html, options) {
     loop = defaultFor(options.loop, loop);
   }
 
-  var strip_regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+  var strip_regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi;
 
   while (strip_regex.test(html)) {
     html = html.replace(strip_regex, replacementText);

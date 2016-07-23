@@ -36,4 +36,4 @@ Disclaimer
 ===
 The code uses regex, which has been sourced from [here](http://stackoverflow.com/questions/6659351/removing-all-script-tags-from-html-with-js-regular-expression)
 The regex is:
-`/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi`
+`/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi`
