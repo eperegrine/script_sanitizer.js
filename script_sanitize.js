@@ -1,22 +1,22 @@
 //With help from: http://stackoverflow.com/questions/6659351/removing-all-script-tags-from-html-with-js-regular-expression
-
-function isDefined(obj) {
-  return (typeof obj !== 'undefined') && obj != null
-}
-
-function defaultFor(variable,defaultValue){
-  return (isDefined(variable))?(variable):(defaultValue);
-}
+var utils = {
+  isDefined: function (obj) {
+    return (typeof obj !== 'undefined') && obj != null
+  },
+  defaultFor: function (variable,defaultValue){
+    return (this.isDefined(variable))?(variable):(defaultValue);
+  }
+};
 
 function script_sanitize(html, options) {
   var replacementText = "";
   var loop = true;
   var removeEndTagsAfter = true;
 
-  if (isDefined(options)) {
-    replacementText = defaultFor(options.replacementText, replacementText);
-    loop = defaultFor(options.loop, loop);
-    removeEndTagsAfter = defaultFor(options.removeEndTagsAfter, removeEndTagsAfter);
+  if (utils.isDefined(options)) {
+    replacementText = utils.defaultFor(options.replacementText, replacementText);
+    loop = utils.defaultFor(options.loop, loop);
+    removeEndTagsAfter = utils.defaultFor(options.removeEndTagsAfter, removeEndTagsAfter);
   }
 
   var strip_regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi;

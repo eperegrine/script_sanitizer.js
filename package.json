@@ -1,6 +1,6 @@
 {
   "name": "script_sanitize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple js pacakge to remove script tags but allow html content",
   "main": "index.js",
   "scripts": {
