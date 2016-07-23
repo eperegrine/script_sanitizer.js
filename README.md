@@ -54,6 +54,9 @@ The options parameter
 | loop                | Whether to replace via looping or a single statement                                    | true          |
 | replaceEndTagsAfter | In certain cases the ending script tag is still there, this options ensures it won't be | true          |
 
+License
+===
+[MIT](https://opensource.org/licenses/MIT)
 
 Disclaimer
 ===
