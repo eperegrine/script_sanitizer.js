@@ -4,6 +4,7 @@ A simple npm library to remove script tags but keep other html
 Installation
 ===
 - NPM `npm install script_sanitize`
+
 Usage
 ===
 If on Node.js

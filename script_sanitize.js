@@ -11,6 +11,7 @@ function defaultFor(variable,defaultValue){
 function script_sanitize(html, options) {
   var replacementText = "";
   var loop = true;
+  var removeEndTagsAfter = true;
 
   if (isDefined(options)) {
     replacementText = defaultFor(options.replacementText, replacementText);
@@ -19,8 +20,16 @@ function script_sanitize(html, options) {
 
   var strip_regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi;
 
+  var scriptEndTagRegex = /<\/script\s*>/gi;
+
   while (strip_regex.test(html)) {
     html = html.replace(strip_regex, replacementText);
+  }
+
+  if (removeEndTagsAfter) {
+    while (scriptEndTagRegex.test(html)) {
+      html = html.replace(scriptEndTagRegex, replacementText);
+    }
   }
 
   return html;
