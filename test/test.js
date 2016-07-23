@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var script_sanitize = require('../script_sanitize');
+var script_sanitize = require('../script_sanitize').sanitize;
 
 describe('script_sanitize', function () {
   it('should remove empty script tags', function() {

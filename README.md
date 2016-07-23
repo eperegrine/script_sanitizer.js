@@ -17,13 +17,16 @@ Usage
 ===
 If on Node.js
 ```js
-var script_santize = require('script_sanitize')
+var script_sanitize = require('../script_sanitize').sanitize;
 ```
 
 If on a website
 
 ```html
 <script href="https://cdn.rawgit.com/EverlessDrop41/script_sanitizer.js/master/dist/script_sanitize.min.js"></script>
+<script type="text/javascript">
+  var script_sanitize = script_sanitize.sanitize;
+</script>
 ```
 
 The method is defined as
