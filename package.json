@@ -1,11 +1,12 @@
 {
   "name": "script_sanitize",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A simple js pacakge to remove script tags but allow html content",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
+  "repository" : "https://github.com/EverlessDrop41/script_sanitizer.js",
   "author": "",
   "license": "MIT",
   "devDependencies": {

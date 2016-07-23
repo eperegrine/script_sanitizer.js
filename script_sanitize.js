@@ -1,4 +1,4 @@
-//http://stackoverflow.com/questions/6659351/removing-all-script-tags-from-html-with-js-regular-expression
+//With help from: http://stackoverflow.com/questions/6659351/removing-all-script-tags-from-html-with-js-regular-expression
 
 function isDefined(obj) {
   return (typeof obj !== 'undefined') && obj != null
