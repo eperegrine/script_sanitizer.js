@@ -16,15 +16,22 @@ function script_sanitize(html, options) {
   if (isDefined(options)) {
     replacementText = defaultFor(options.replacementText, replacementText);
     loop = defaultFor(options.loop, loop);
+    removeEndTagsAfter = defaultFor(options.removeEndTagsAfter, removeEndTagsAfter);
   }
 
   var strip_regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi;
 
   var scriptEndTagRegex = /<\/script\s*>/gi;
 
-  while (strip_regex.test(html)) {
+  if (loop) {
+    while (strip_regex.test(html)) {
+      html = html.replace(strip_regex, replacementText);
+    }
+  }
+  else {
     html = html.replace(strip_regex, replacementText);
   }
+
 
   if (removeEndTagsAfter) {
     while (scriptEndTagRegex.test(html)) {
