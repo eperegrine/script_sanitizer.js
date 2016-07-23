@@ -1,5 +1,10 @@
-# script_sanitizer.js [![Build Status](https://travis-ci.org/EverlessDrop41/script_sanitizer.js.svg?branch=master)](https://travis-ci.org/EverlessDrop41/script_sanitizer.js)
+# script_sanitizer.js
 A simple npm library to remove script tags but keep other html
+
+[![npm](https://img.shields.io/npm/dt/script_sanitize.svg)](https://www.npmjs.com/package/script_sanitize)
+[![Build Status](https://travis-ci.org/EverlessDrop41/script_sanitizer.js.svg?branch=master)](https://travis-ci.org/EverlessDrop41/script_sanitizer.js)
+[![npm](https://img.shields.io/npm/v/script_sanitize.svg?maxAge=2592000)](https://www.npmjs.com/package/script_sanitize)
+[![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](https://www.npmjs.com/package/script_sanitize)
 
 Installation
 ===
@@ -30,7 +35,7 @@ var sanitized = script_sanitize("<h1>Hello</h1><script>alert('hi')</script>");
 ```
 
 ```js
-var sanitizedWithReplacment = script_sanitize("<h1>Hello</h1><script>alert('hi')</script>", { replacementText: "no" })
+var sanitizedWithReplacment = script_sanitize("<h1>Hello</h1><script>alert('hi')</script>", { replacementText: "no" });
 //=> <h1>Hello</h1>no
 ```
 
