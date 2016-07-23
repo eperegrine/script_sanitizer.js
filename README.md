@@ -8,10 +8,10 @@ A simple npm library to remove script tags but keep other html
 
 Installation
 ===
-- NPM  `npm install script_sanitize`
-- CDN   https://cdn.rawgit.com/EverlessDrop41/script_sanitizer.js/master/dist/script_sanitize.min.js
-- Repo  dist/script_sanitize.js
-- Repo Minified  dist/script_sanitize.min.js
+- NPM:  `npm install script_sanitize`
+- CDN:   https://cdn.rawgit.com/EverlessDrop41/script_sanitizer.js/master/dist/script_sanitize.min.js
+- Repo:  dist/script_sanitize.js
+- Repo Minified:  dist/script_sanitize.min.js
 
 Usage
 ===
