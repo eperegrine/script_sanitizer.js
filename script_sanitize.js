@@ -10,11 +10,20 @@ function defaultFor(variable,defaultValue){
 
 function script_sanitize(html, options) {
   var replacementText = "";
+  var loop = true;
 
   if (isDefined(options)) {
-    replacementText = defaultFor(options.replacementText, "");
+    replacementText = defaultFor(options.replacementText, replacementText);
+    loop = defaultFor(options.loop, loop);
   }
-  return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, replacementText);
+
+  var strip_regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+
+  while (strip_regex.test(html)) {
+    html = html.replace(strip_regex, replacementText);
+  }
+
+  return html;
 }
 
 if (typeof module !== undefined) {
