@@ -39,6 +39,15 @@ var sanitizedWithReplacment = script_sanitize("<h1>Hello</h1><script>alert('hi')
 //=> <h1>Hello</h1>no
 ```
 
+The options parameter
+--
+
+| Option              | Description                                                                             | Default Value |
+|---------------------|-----------------------------------------------------------------------------------------|---------------|
+| replacementText     | The text to replace the script tag with                                                 | ""            |
+| loop                | Whether to replace via looping or a single statement                                    | true          |
+| replaceEndTagsAfter | In certain cases the ending script tag is still there, this options ensures it won't be | true          |
+
 
 Disclaimer
 ===
