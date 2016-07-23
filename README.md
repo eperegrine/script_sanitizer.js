@@ -18,7 +18,6 @@ If on a website
 coming soon
 ```
 
----
 The method is defined as
 
 `script_sanitize(html, options (optional))`

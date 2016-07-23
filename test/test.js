@@ -94,5 +94,17 @@ describe('script_sanitize', function () {
         assert.equal(a, "<scrnoipt>console.log('Hello');</script>");
       });
     });
+    describe("removeEndTagsAfter", function () {
+      it ('should be set to true by default', function () {
+        var a = script_sanitize("<script><script>alert('hi');</script></script>");
+        assert.equal(a, "");
+      });
+      it ('should be possible to set to false', function () {
+        var a = script_sanitize("<script><script>alert('hi');</script></script>", {
+          removeEndTagsAfter: false
+        });
+        assert.equal(a, "</script>");
+      });
+    });
   });
 });
