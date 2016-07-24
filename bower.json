@@ -1,0 +1,17 @@
+{
+  "name": "script_sanitize",
+  "description": "A simple js pacakge to remove script tags but allow html content",
+  "main": "index.js",
+  "authors": [
+    "emilyperegrine <peregrineemily@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/EverlessDrop41/script_sanitizer.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
