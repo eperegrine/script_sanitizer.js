@@ -53,6 +53,7 @@ The options parameter
 | replacementText     | The text to replace the script tag with                                                 | ""            |
 | loop                | Whether to replace via looping or a single statement                                    | true          |
 | replaceEndTagsAfter | In certain cases the ending script tag is still there, this options ensures it won't be | true          |
+| tags                | The tags that should be replaced                                                        | ["script"]    |
 
 Utils
 --

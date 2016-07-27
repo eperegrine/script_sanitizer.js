@@ -53,7 +53,6 @@ var script_sanitize = {
       }
     }
 
-
     return html;
   }
 };
