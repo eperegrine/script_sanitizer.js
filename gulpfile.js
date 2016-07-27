@@ -8,7 +8,7 @@ gulp.task("minify", function () {
             src:'.js',
             min:'.min.js'
         }
-      }))
+    }))
     .pipe(gulp.dest('dist'))
 });
 

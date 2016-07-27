@@ -15,43 +15,48 @@ var utils = {
     return new RegExp(a, "gi");
   }
 };
+
 var script_sanitize = {
   utils: utils,
   sanitize: function (html, options) {
     var replacementText = "";
     var loop = true;
     var removeEndTagsAfter = true;
+    var tags = ["script"];
 
     if (utils.isDefined(options)) {
       replacementText = utils.defaultFor(options.replacementText, replacementText);
       loop = utils.defaultFor(options.loop, loop);
       removeEndTagsAfter = utils.defaultFor(options.removeEndTagsAfter, removeEndTagsAfter);
+      tags = utils.defaultFor(options.tags, tags);
     }
 
-    var strip_regex = utils.generateRegexForTag("script");// /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi;
+    for (var i in tags) {
+      var tag = tags[i];
+      var strip_regex = utils.generateRegexForTag(tag);// /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi;
 
-    var scriptEndTagRegex = utils.generateRegexForEndTag("script");// /<\/script\s*>/gi;
+      var endTagRegex = utils.generateRegexForEndTag(tag);// /<\/script\s*>/gi;
 
-    if (loop) {
-      while (strip_regex.test(html)) {
+      if (loop) {
+        while (strip_regex.test(html)) {
+          html = html.replace(strip_regex, replacementText);
+        }
+      }
+      else {
         html = html.replace(strip_regex, replacementText);
       }
-    }
-    else {
-      html = html.replace(strip_regex, replacementText);
-    }
 
-    if (removeEndTagsAfter) {
-      while (scriptEndTagRegex.test(html)) {
-        html = html.replace(scriptEndTagRegex, replacementText);
+      if (removeEndTagsAfter) {
+        while (endTagRegex.test(html)) {
+          html = html.replace(endTagRegex, replacementText);
+        }
       }
     }
+
 
     return html;
   }
-}
-
-
+};
 
 if (typeof module !== undefined) {
   module.exports = script_sanitize;

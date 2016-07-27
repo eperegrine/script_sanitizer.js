@@ -6,6 +6,7 @@ var script_sanitize = ss.sanitize;
 var replacementText = require("./replacementText_test");
 var loop_test = require("./loop_test");
 var removeEndTagsAfter = require("./removeEndTagsAfter_test");
+var tags_test = require("./tags_test");
 
 module.exports = function () {
   describe("options parameter", function() {
@@ -19,5 +20,7 @@ module.exports = function () {
     loop_test();
 
     removeEndTagsAfter();
+
+    tags_test();
   });
 };
