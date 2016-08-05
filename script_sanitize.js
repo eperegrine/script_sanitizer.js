@@ -15,7 +15,7 @@ var utils = {
     return new RegExp(a, "gi");
   },
   generateRegexForAttribute: function (attribute) {
-    var a = attribute + "=\"[^\"]*\""
+    var a = attribute + "=(\"|\')[^\"\']*(\"|\')"
     return new RegExp(a, "gi")
   }
 };

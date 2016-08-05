@@ -5,11 +5,14 @@ var it = require('mocha/lib/mocha.js').it;
 var utils = ss.utils;
 var generateRegexForTag = require("./generateRegexForTag_test");
 var generateRegexForEndTag = require("./generateRegexForEndTag_test");
+var generateRegexForAttribute = require("./generateRegexForAttribute_test");
 
 module.exports = function () {
   describe('utils', function () {
     generateRegexForTag();
 
     generateRegexForEndTag();
+
+    generateRegexForAttribute();
   });
 };
