@@ -7,6 +7,7 @@ var replacementText = require("./replacementText_test");
 var loop_test = require("./loop_test");
 var removeEndTagsAfter = require("./removeEndTagsAfter_test");
 var tags_test = require("./tags_test");
+var attributes_test = require("./attributes_test");
 
 module.exports = function () {
   describe("options parameter", function() {
@@ -22,5 +23,7 @@ module.exports = function () {
     removeEndTagsAfter();
 
     tags_test();
+
+    attributes_test()
   });
 };
