@@ -59,6 +59,15 @@ var script_sanitize = {
       }
     }
 
+    for (var j in attributes) {
+      var attribute = attributes[j];
+      var aRegex = utils.generateRegexForAttribute(attribute);
+
+      while (aRegex.test(html)) {
+        html = html.replace(aRegex, "")
+      }
+    }
+
     return html;
   }
 };
