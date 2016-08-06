@@ -48,21 +48,23 @@ var sanitizedWithReplacment = script_sanitize("<h1>Hello</h1><script>alert('hi')
 The options parameter
 --
 
-| Option              | Description                                                                             | Default Value |
-|---------------------|-----------------------------------------------------------------------------------------|---------------|
-| replacementText     | The text to replace the script tag with                                                 | ""            |
-| loop                | Whether to replace via looping or a single statement                                    | true          |
-| replaceEndTagsAfter | In certain cases the ending script tag is still there, this options ensures it won't be | true          |
-| tags                | The tags that should be replaced                                                        | ["script"]    |
+| Option              | Description                                                                             | Default Value   |
+|---------------------|-----------------------------------------------------------------------------------------|-----------------|
+| replacementText     | The text to replace the script tag with                                                 | ""              |
+| loop                | Whether to replace via looping or a single statement                                    | true            |
+| replaceEndTagsAfter | In certain cases the ending script tag is still there, this options ensures it won't be | true            |
+| tags                | The tags that should be replaced                                                        | ["script"]      |
+| attributes **BETA** | The attributes that should be replaced                                                  | ["onmouseover"] |
 
 Utils
 --
-| Util                   | Description                                   |
-|------------------------|-----------------------------------------------|
-| isDefined              | Checks if a variable is defined               |
-| defaultFor             | Sets a default value if a variable is defined |
-| generateRegexForTag    | Generates a regex object for a tag            |
-| generateRegexForEndTag | Generates a regex object to check an end tag  |
+| Util                      | Description                                     |
+|---------------------------|-------------------------------------------------|
+| isDefined                 | Checks if a variable is defined                 |
+| defaultFor                | Sets a default value if a variable is defined   |
+| generateRegexForTag       | Generates a regex object for a tag              |
+| generateRegexForEndTag    | Generates a regex object to check an end tag    |
+| generateRegexForAttribute | Generates a regex object to check an attribute  |
 
 License
 ===
