@@ -3,7 +3,7 @@ var utils = {
   isDefined: function (obj) {
     return (typeof obj !== 'undefined') && obj != null
   },
-  defaultFor: function (variable,defaultValue){
+  defaultFor: function (variable, defaultValue){
     return (this.isDefined(variable))?(variable):(defaultValue);
   },
   generateRegexForTag: function (tag) {
@@ -13,6 +13,10 @@ var utils = {
   generateRegexForEndTag: function (tag) {
     var a = "<\\/" + tag + "\\s*>";
     return new RegExp(a, "gi");
+  },
+  generateRegexForAttribute: function (attribute) {
+    var a = attribute + "=(\"|\')[^\"\']*(\"|\')"
+    return new RegExp(a, "gi")
   }
 };
 
@@ -23,12 +27,14 @@ var script_sanitize = {
     var loop = true;
     var removeEndTagsAfter = true;
     var tags = ["script"];
+    var attributes = ["onmouseover"];
 
     if (utils.isDefined(options)) {
       replacementText = utils.defaultFor(options.replacementText, replacementText);
       loop = utils.defaultFor(options.loop, loop);
       removeEndTagsAfter = utils.defaultFor(options.removeEndTagsAfter, removeEndTagsAfter);
       tags = utils.defaultFor(options.tags, tags);
+      attributes = utils.defaultFor(options.attributes, attributes);
     }
 
     for (var i in tags) {
@@ -53,6 +59,14 @@ var script_sanitize = {
       }
     }
 
+    for (var j in attributes) {
+      var attribute = attributes[j];
+      var aRegex = utils.generateRegexForAttribute(attribute);
+
+      while (aRegex.test(html)) {
+        html = html.replace(aRegex, "")
+      }
+    }
 
     return html;
   }
