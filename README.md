@@ -13,6 +13,10 @@ Installation
 - Repo:  dist/script_sanitize.js
 - Repo Minified:  dist/script_sanitize.min.js
 
+Documention
+===========
+https://doclets.io/EverlessDrop41/script_sanitizer.js/master
+
 Usage
 ===
 If on Node.js
