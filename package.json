@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
-    "gendocs": "jsdoc script_sanitize.js -d docs"
+    "gendocs": "jsdoc --configure jsdoc.conf.json"
   },
   "repository": "https://github.com/EverlessDrop41/script_sanitizer.js",
   "author": "",
@@ -14,6 +14,7 @@
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-minify": "0.0.13",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "postman-jsdoc-theme": "0.0.2"
   }
 }
