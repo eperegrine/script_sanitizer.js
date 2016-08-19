@@ -4,7 +4,8 @@
   "description": "A simple js pacakge to remove script tags but allow html content",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha",
+    "gendocs": "jsdoc script_sanitize.js -d docs"
   },
   "repository": "https://github.com/EverlessDrop41/script_sanitizer.js",
   "author": "",
