@@ -78,7 +78,7 @@ var script_sanitize = {
     var removeEndTagsAfter = true;
     var tags = ["script"];
     var attributes = ["onmouseover"];
-
+    var utils = script_sanitize.utils;
     if (utils.isDefined(options)) {
       replacementText = utils.defaultFor(options.replacementText, replacementText);
       loop = utils.defaultFor(options.loop, loop);
