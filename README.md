@@ -2,20 +2,20 @@
 A simple npm library to remove script tags but keep other html
 
 [![npm](https://img.shields.io/npm/dt/script_sanitize.svg)](https://www.npmjs.com/package/script_sanitize)
-[![Build Status](https://travis-ci.org/EverlessDrop41/script_sanitizer.js.svg?branch=master)](https://travis-ci.org/EverlessDrop41/script_sanitizer.js)
+[![Build Status](https://travis-ci.org/eperegrine/script_sanitizer.js.svg?branch=master)](https://travis-ci.org/eperegrine/script_sanitizer.js)
 [![npm](https://img.shields.io/npm/v/script_sanitize.svg?maxAge=2592000)](https://www.npmjs.com/package/script_sanitize)
 [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](https://www.npmjs.com/package/script_sanitize)
 
 Installation
 ===
 - NPM:  `npm install script_sanitize`
-- CDN:   https://cdn.rawgit.com/EverlessDrop41/script_sanitizer.js/master/dist/script_sanitize.min.js
+- CDN:   https://cdn.rawgit.com/eperegrine/script_sanitizer.js/master/dist/script_sanitize.min.js
 - Repo:  dist/script_sanitize.js
 - Repo Minified:  dist/script_sanitize.min.js
 
 Documention
 ===========
-https://doclets.io/EverlessDrop41/script_sanitizer.js/master
+https://doclets.io/eperegrine/script_sanitizer.js/master
 
 Usage
 ===
@@ -27,7 +27,7 @@ var script_sanitize = require('../script_sanitize').sanitize;
 If on a website
 
 ```html
-<script href="https://cdn.rawgit.com/EverlessDrop41/script_sanitizer.js/master/dist/script_sanitize.min.js"></script>
+<script href="https://cdn.rawgit.com/eperegrine/script_sanitizer.js/master/dist/script_sanitize.min.js"></script>
 <script type="text/javascript">
   var script_sanitize = script_sanitize.sanitize;
 </script>
