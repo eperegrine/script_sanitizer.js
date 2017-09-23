@@ -21,7 +21,8 @@ Usage
 ===
 If on Node.js
 ```js
-var script_sanitize = require('../script_sanitize').sanitize;
+const script_sanitize = require('../script_sanitize');
+var sanitize = script_sanitize.sanitize;
 ```
 
 If on a website
@@ -29,36 +30,56 @@ If on a website
 ```html
 <script href="https://cdn.rawgit.com/eperegrine/script_sanitizer.js/master/dist/script_sanitize.min.js"></script>
 <script type="text/javascript">
-  var script_sanitize = script_sanitize.sanitize;
+  var sanitize = script_sanitize.sanitize;
 </script>
 ```
 
 The method is defined as
 
-`script_sanitize(html, options (optional))`
+`sanitize(html, options (optional))`
 
 and can be used like so
 
 ```js
-var sanitized = script_sanitize("<h1>Hello</h1><script>alert('hi')</script>");
+var sanitized = sanitize("<h1>Hello</h1><script>alert('hi')</script>");
 //=> <h1>Hello</h1>
 ```
 
 ```js
-var sanitizedWithReplacment = script_sanitize("<h1>Hello</h1><script>alert('hi')</script>", { replacementText: "no" });
+var sanitizedWithReplacment = sanitize("<h1>Hello</h1><script>alert('hi')</script>", { replacementText: "no" });
 //=> <h1>Hello</h1>no
+```
+
+Attributes
+--
+
+The default attributes are stored in an array which can be refrenced like:
+
+```js
+var attrArray = script_sanitize.defaultAttributes;
+```
+
+and if you wanted to make an attribute exempt you could apply it like so
+
+[thanks stack overflow](https://stackoverflow.com/questions/5767325/how-do-i-remove-a-particular-element-from-an-array-in-javascript)
+
+```js
+var newAttrArray = script_sanitize.defaultAttributes;
+var exemptIndex = newAttrArray.indexOf("onclick");
+newAttrArray.splice(exmptIndex, 1);
+sanitize("[HTML STUFF]", { attributes: newAttrArray });
 ```
 
 The options parameter
 --
 
-| Option              | Description                                                                             | Default Value   |
-|---------------------|-----------------------------------------------------------------------------------------|-----------------|
-| replacementText     | The text to replace the script tag with                                                 | ""              |
-| loop                | Whether to replace via looping or a single statement                                    | true            |
-| replaceEndTagsAfter | In certain cases the ending script tag is still there, this options ensures it won't be | true            |
-| tags                | The tags that should be replaced                                                        | ["script"]      |
-| attributes **BETA** | The attributes that should be replaced                                                  | ["onmouseover"] |
+| Option              | Description                                                                             | Default Value     |
+|---------------------|-----------------------------------------------------------------------------------------|-------------------|
+| replacementText     | The text to replace the script tag with                                                 | ""                |
+| loop                | Whether to replace via looping or a single statement                                    | true              |
+| replaceEndTagsAfter | In certain cases the ending script tag is still there, this options ensures it won't be | true              |
+| tags                | The tags that should be replaced                                                        | ["script"]        |
+| attributes          | The attributes that should be replaced                                                  | defaultAttributes |
 
 Utils
 --
@@ -79,3 +100,5 @@ Disclaimer
 The code uses regex, which has been sourced from [here](http://stackoverflow.com/questions/6659351/removing-all-script-tags-from-html-with-js-regular-expression)
 The regex is:
 `/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi`
+
+Although this library will likely be used for security purposes I, the developer, am not responsible if this pacakge doesn't meet your security requirements so use with caution
