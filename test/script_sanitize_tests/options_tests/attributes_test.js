@@ -5,7 +5,7 @@ var it = require('mocha/lib/mocha.js').it;
 var script_sanitize = ss.sanitize;
 
 module.exports = function () {
-  describe("tags", function () {
+  describe("attributes", function () {
     it('should replace the attribute specified', function() {
       var a = script_sanitize("<h1 onload=''></h1>", { attributes: ["onload"], tags: [] });
       assert.isOk(!a.includes("onload"));

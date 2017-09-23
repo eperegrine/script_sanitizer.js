@@ -77,7 +77,15 @@ var script_sanitize = {
     var loop = true;
     var removeEndTagsAfter = true;
     var tags = ["script"];
-    var attributes = ["onmouseover"];
+    var attributes = ["onafterprint","onbeforeprint","onbeforeunload","onerror","onhashchange","onload","onoffline",
+    "ononline","onpagehide","onpageshow","onpopstate","onresize","onstorage","onunload","onblur","onchange",
+    "oncontextmenu","onfocus","oninput","oninvalid","onreset","onsearch","onselect","onsubmit","onkeydown",
+    "onkeyup","onkeypress","onclick","ondblclick","onmousedown","onmousemove","onmouseout","onmouseover","onmouseup",
+    "onmousewheel","onwheel","ondrag","ondragend","ondragenter","ondragleave","ondragover","ondragstart","ondrop",
+    "onscroll","oncopy","oncut","onpaste","onabort","oncanplay","oncanplaythrough","oncuechange","ondurationchange",
+    "onemptied","onended","onerror","onloadeddata","onloadedmetadata","onloadstart","onpause","onplay","onplaying",
+    "onprogress","onratechange","onseeked","onseeking","onstalled","onsuspend","ontimeupdate","onvolumechange",
+    "onwaiting", "onshow", "ontoggle"];
     var utils = script_sanitize.utils;
     if (utils.isDefined(options)) {
       replacementText = utils.defaultFor(options.replacementText, replacementText);
